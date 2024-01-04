@@ -6,7 +6,7 @@
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:01:22 by saazcon-          #+#    #+#             */
-/*   Updated: 2024/01/04 12:59:39 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:05 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	ft_free_double(char **str)
 
 void	ft_free_all(t_game *g)
 {
-	if(g->mlx)
+	if (g->mlx)
 		free(g->mlx);
-	if(g->win)
+	if (g->win)
 		free(g->win);
-	if(g->map)
+	if (g->map)
 		free(g->map);
-	if(g->data)
+	if (g->data)
 		ft_free_double(g->data);
 }
 

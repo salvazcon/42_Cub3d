@@ -6,7 +6,7 @@
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:54:26 by saazcon-          #+#    #+#             */
-/*   Updated: 2024/01/04 13:06:13 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:48:51 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_read_file(t_game *g, char *file)
 	if (!f)
 		ft_error(g, "ERROR\n -> Problemas con la lectura del archivo\n", 1);
 	close(fd);
-	return(f);
+	return (f);
 }
 
 void	ft_check_ext(t_game *g, char *file)

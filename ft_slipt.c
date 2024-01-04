@@ -6,7 +6,7 @@
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:12:44 by saazcon-          #+#    #+#             */
-/*   Updated: 2024/01/02 16:58:09 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/04 16:57:55 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	**ft_split_n(const char *s, char c, int n)
 	return (a);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**a;
 	int		i;

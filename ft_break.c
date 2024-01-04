@@ -6,7 +6,7 @@
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:05:54 by saazcon-          #+#    #+#             */
-/*   Updated: 2024/01/04 13:09:48 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:42:59 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	ft_map_start(t_game *g, char *file, char **datas)
 		{
 			i++;
 			j++;
-			if(y == j)
-				return(i + 1);
+			if (y == j)
+				return (i + 1);
 		}
 	}
 	ft_error(g, "ERROR\n -> Problemas con la lectura del archivo\n", 1);
@@ -37,23 +37,23 @@ int	ft_map_start(t_game *g, char *file, char **datas)
 
 void	ft_fill_space(t_game *g, int i)
 {
-	while(i < g->row)
+	while (i < g->row)
 	{
 		g->map = ft_strjoin_gnl(g->map, " ");
 		i++;
 	}
 }
 
-void	ft_break_map(t_game *g, char *fl, char **splited ,int start)
+void	ft_break_map(t_game *g, char *fl, char **splited, int start)
 {
-	int i;
+	int	i;
 
 	i = 7;
 	g->map = ft_strdup(splited[6]);
-	while(splited[i])
+	while (splited[i])
 	{
 		g->map = ft_strjoin_gnl(g->map, "\n");
-		if(fl[start] && fl[start] == '\n')
+		if (fl[start] && fl[start] == '\n')
 		{
 			ft_fill_space(g, 0);
 			start++;
@@ -62,7 +62,7 @@ void	ft_break_map(t_game *g, char *fl, char **splited ,int start)
 		{
 			g->map = ft_strjoin_gnl(g->map, splited[i]);
 			ft_fill_space(g, ft_strlen(splited[i]));
-			while(fl[start] && fl[start] != '\n')
+			while (fl[start] && fl[start] != '\n')
 				start++;
 			start++;
 			i++;
@@ -80,7 +80,7 @@ void	ft_break_file(t_game *g, char *file)
 	splited = ft_split(file, '\n');
 	line = ft_strdup(splited[6]);
 	i = 6;
-	while(splited[++i])
+	while (splited[++i])
 	{
 		line = ft_strjoin_gnl(line, "\n");
 		line = ft_strjoin_gnl(line, splited[i]);

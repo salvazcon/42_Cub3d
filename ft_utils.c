@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:46:11 by saazcon-          #+#    #+#             */
-/*   Updated: 2023/11/29 15:27:24 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:15:04 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,46 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strdup(char *s1)
+int	ft_strchr(char *s, int c)
 {
-	int		i;
-	char	*dst;
+	int	i;
 
-	dst = malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (!dst)
-		return (0);
 	i = 0;
-	while (s1[i])
+	while (s[i])
 	{
-		dst[i] = s1[i];
+		if (s[i] == (char)c)
+			return (i);
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	if (c == 0)
+		return (i);
+	return (0);
+}
+
+int	ft_atoi(char *str)
+{
+	int		i;
+	int		sign;
+	int		val;
+
+	i = 0;
+	sign = 1;
+	val = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || (str[i] == 32))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = (sign * -1);
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		val = (val * 10);
+		val = (val + (str[i] - 48));
+		i++;
+	}
+	return (val * sign);
 }
 
 void	*ft_calloc(size_t count, size_t size)
@@ -78,28 +102,4 @@ char	*ft_strjoin_gnl(char *stash, char *buff)
 		str[i + j] = buff[j];
 	free(stash);
 	return (str);
-}
-
-char	*ft_substr(char *s, int start, int len)
-{
-	char	*dst;
-	int		i;
-
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > (ft_strlen(s) - start)) 
-		len = ft_strlen(s) - start;
-	dst = malloc(sizeof(char) * len + 1);
-	if (!dst)
-		return (0);
-	i = 0;
-	while (len > i)
-	{
-		dst[i] = s[start + i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
 }
