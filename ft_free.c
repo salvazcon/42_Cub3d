@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:01:22 by saazcon-          #+#    #+#             */
-/*   Updated: 2023/11/29 17:01:24 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:59:39 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_free_double(char **str)
 	free(str);
 }
 
-void	ft_free(t_game *g)
+void	ft_free_all(t_game *g)
 {
 	if(g->mlx)
 		free(g->mlx);
@@ -35,4 +35,12 @@ void	ft_free(t_game *g)
 		free(g->map);
 	if(g->data)
 		ft_free_double(g->data);
+}
+
+void	ft_error(t_game *g, char *error, int num)
+{
+	perror(error);
+	if (!g)
+		ft_free_all(g);
+	exit(num);
 }

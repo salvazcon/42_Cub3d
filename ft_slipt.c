@@ -6,13 +6,13 @@
 /*   By: saazcon- <saazcon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:12:44 by saazcon-          #+#    #+#             */
-/*   Updated: 2023/11/29 15:47:33 by saazcon-         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:58:09 by saazcon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	ft_free(char **a, int i)
+static void	ft_free_split(char **a, int i)
 {
 	if (!a)
 	{
@@ -80,7 +80,7 @@ char	**ft_split_n(const char *s, char c, int n)
 		if (*s && *s != c)
 		{
 			a[i] = ft_word(s, c);
-			ft_free(a, i);
+			ft_free_split(a, i);
 			i++;
 			while (*s && *s != c)
 				s++;
@@ -108,7 +108,7 @@ char	**ft_split(const char *s, char c)
 		if (*s && *s != c)
 		{
 			a[i] = ft_word(s, c);
-			ft_free(a, i);
+			ft_free_split(a, i);
 			i++;
 			while (*s && *s != c)
 				s++;
